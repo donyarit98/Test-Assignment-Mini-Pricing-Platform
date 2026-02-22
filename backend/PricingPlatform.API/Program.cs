@@ -109,15 +109,15 @@ builder.Services.AddRateLimiter(options =>
 var app = builder.Build();
 
 // ─── Middleware Pipeline ───────────────────────────────────
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mini Pricing Platform v1");
         c.RoutePrefix = "swagger";
     });
-}
+// }
 
 app.UseRateLimiter();                          // ← Rate Limiting
 app.UseMiddleware<CorrelationIdMiddleware>();   // ← Correlation ID
