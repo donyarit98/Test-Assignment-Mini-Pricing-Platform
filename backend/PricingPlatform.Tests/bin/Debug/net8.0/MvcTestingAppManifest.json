@@ -1,0 +1,6 @@
+{
+  "PricingPlatform.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/blue\/mini-pricing-platform\/backend\/PricingPlatform.API",
+  "PricingPlatform.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/blue\/mini-pricing-platform\/backend\/PricingPlatform.Application",
+  "PricingPlatform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/blue\/mini-pricing-platform\/backend\/PricingPlatform.Core",
+  "PricingPlatform.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/Users\/blue\/mini-pricing-platform\/backend\/PricingPlatform.Infrastructure"
+}

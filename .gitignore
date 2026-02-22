@@ -1,0 +1,21 @@
+# .NET
+bin/
+obj/
+*.user
+appsettings.Production.json
+
+# Node
+node_modules/
+dist/
+
+# ENV
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sample data ขนาดใหญ่
+bulk_1000.json
+EOF
