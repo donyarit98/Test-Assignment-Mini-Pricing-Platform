@@ -1,0 +1,17 @@
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Infrastructure.deps.json
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Infrastructure.dll
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Infrastructure.pdb
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Application.dll
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Core.dll
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Core.pdb
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/bin/Debug/net8.0/PricingPlatform.Application.pdb
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.csproj.AssemblyReference.cache
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.AssemblyInfoInputs.cache
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.AssemblyInfo.cs
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingP.C79FAD87.Up2Date
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.dll
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/refint/PricingPlatform.Infrastructure.dll
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/PricingPlatform.Infrastructure.pdb
+/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/Debug/net8.0/ref/PricingPlatform.Infrastructure.dll

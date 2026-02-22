@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/blue/mini-pricing-platform/backend/PricingPlatform.API/PricingPlatform.API.csproj": {}
+  },
+  "projects": {
+    "/Users/blue/mini-pricing-platform/backend/PricingPlatform.API/PricingPlatform.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.API/PricingPlatform.API.csproj",
+        "projectName": "PricingPlatform.API",
+        "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.API/PricingPlatform.API.csproj",
+        "packagesPath": "/Users/blue/.nuget/packages/",
+        "outputPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.API/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/blue/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj"
+              },
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj"
+              },
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/PricingPlatform.Infrastructure.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/PricingPlatform.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj",
+        "projectName": "PricingPlatform.Application",
+        "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj",
+        "packagesPath": "/Users/blue/.nuget/packages/",
+        "outputPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/blue/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj",
+        "projectName": "PricingPlatform.Core",
+        "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj",
+        "packagesPath": "/Users/blue/.nuget/packages/",
+        "outputPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/blue/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/PricingPlatform.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/PricingPlatform.Infrastructure.csproj",
+        "projectName": "PricingPlatform.Infrastructure",
+        "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/PricingPlatform.Infrastructure.csproj",
+        "packagesPath": "/Users/blue/.nuget/packages/",
+        "outputPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/blue/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Application/PricingPlatform.Application.csproj"
+              },
+              "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj": {
+                "projectPath": "/Users/blue/mini-pricing-platform/backend/PricingPlatform.Core/PricingPlatform.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[10.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

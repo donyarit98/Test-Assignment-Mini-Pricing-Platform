@@ -1,0 +1,41 @@
+[
+  {
+    "Id": "rule-001",
+    "Name": "Morning Promotion",
+    "Type": 0,
+    "Priority": 1,
+    "EffectiveFrom": "2024-01-01T00:00:00",
+    "EffectiveTo": "2099-12-31T00:00:00",
+    "IsActive": true,
+    "MaxWeightKg": 10, 
+    "WindowStart": "06:00:00",
+    "WindowEnd": "09:00:00",
+    "DiscountPercent": 10.0,
+    "RemoteZipCodes": []
+  },
+  {
+    "Id": "rule-002",
+    "Name": "Remote Area Surcharge",
+    "Type": 1,
+    "Priority": 2,
+    "EffectiveFrom": "2024-01-01T00:00:00",
+    "EffectiveTo": "2099-12-31T00:00:00",
+    "IsActive": true,
+     "MaxWeightKg": 10, 
+    "SurchargeAmount": 50.0,
+    "RemoteZipCodes": ["90210", "10001", "77001"]
+  },
+  {
+    "Id": "rule-003",
+    "Name": "Heavy Package Tier",
+    "Type": 2,
+    "Priority": 3,
+    "EffectiveFrom": "2024-01-01T00:00:00",
+    "EffectiveTo": "2099-12-31T00:00:00",
+    "IsActive": true,
+    "WeightFrom": 10.0,
+    "WeightTo": 50.0,
+    "PricePerKg": 15.0,
+    "RemoteZipCodes": []
+  }
+]
