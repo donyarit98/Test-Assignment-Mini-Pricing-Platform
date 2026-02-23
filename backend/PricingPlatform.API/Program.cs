@@ -6,7 +6,7 @@ using PricingPlatform.Infrastructure.Repositories;
 using PricingPlatform.Infrastructure;
 using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
-using PricingPlatform.API.Middleware;
+using PricingPlatform.API.MiddleWare;
 
 var builder = WebApplication.CreateBuilder(args);
 

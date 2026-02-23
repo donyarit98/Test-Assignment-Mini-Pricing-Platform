@@ -1,23 +1,27 @@
-namespace PricingPlatform.API.Middleware;
-
+namespace PricingPlatform.API.MiddleWare;
 public class CorrelationIdMiddleware
 {
     private readonly RequestDelegate _next;
-    private const string CorrelationIdHeader = "X-Correlation-ID";
+    private readonly ILogger<CorrelationIdMiddleware> _logger;
 
-    public CorrelationIdMiddleware(RequestDelegate next)
+    public CorrelationIdMiddleware(RequestDelegate next, 
+        ILogger<CorrelationIdMiddleware> logger)
     {
         _next = next;
+        _logger = logger;
     }
 
     public async Task InvokeAsync(HttpContext context)
     {
-        var correlationId = context.Request.Headers[CorrelationIdHeader]
+        var correlationId = context.Request.Headers["X-Correlation-ID"]
             .FirstOrDefault() ?? Guid.NewGuid().ToString();
 
-        context.Response.Headers[CorrelationIdHeader] = correlationId;
-        context.Items[CorrelationIdHeader] = correlationId;
+        context.Response.Headers["X-Correlation-ID"] = correlationId;
+        context.Items["X-Correlation-ID"] = correlationId;
 
-        await _next(context);
+        using (_logger.BeginScope("CorrelationId: {CorrelationId}", correlationId))
+        {
+            await _next(context);
+        }
     }
 }
