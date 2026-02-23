@@ -38,6 +38,7 @@ backend/
 | Testing | xUnit + FluentAssertions + Moq |
 | Docs | Swagger / OpenAPI |
 | Container | Docker + Docker Compose |
+| CI | GitHub Actions |
 
 ---
 
@@ -111,6 +112,17 @@ Passed: 38
 
 ---
 
+## CI Pipeline
+
+GitHub Actions runs automatically on every push to `main`:
+
+| Job | What it does |
+|-----|-------------|
+| `test` | dotnet restore → build → run 38 tests |
+| `lint-frontend` | npm install → ESLint check TypeScript |
+
+---
+
 ## Environment Configuration
 
 ### Backend
@@ -120,6 +132,9 @@ Passed: 38
 | `appsettings.json` | Base config (all environments) |
 | `appsettings.Development.json` | Local development (`dotnet run`) |
 | `appsettings.Production.json` | Production (`docker-compose up`) |
+
+> **Note:** `appsettings.Production.json` is excluded from git via `.gitignore`.  
+> Docker uses `ASPNETCORE_ENVIRONMENT=Production` set in `docker-compose.yml`.
 
 Key config values:
 
@@ -188,11 +203,14 @@ Use this ID to trace logs across services or report issues to support.
 Rules are stored in `rules.json` and loaded at runtime. Three rule types are supported:
 
 ### 1. Time Window Promotion
-Applies a percentage discount during a specific time window.
+Applies a percentage discount during a specific time window.  
+Only applies to shipments with weight **≤ MaxWeightKg**.
 
 ```json
 {
   "Type": "TimeWindowPromotion",
+  "Priority": 1,
+  "MaxWeightKg": 10,
   "WindowStart": "06:00:00",
   "WindowEnd": "09:00:00",
   "DiscountPercent": 10
@@ -200,29 +218,44 @@ Applies a percentage discount during a specific time window.
 ```
 
 ### 2. Remote Area Surcharge
-Adds a flat surcharge for shipments to remote zip codes.
+Adds a flat surcharge for shipments to remote zip codes.  
+Only applies to shipments with weight **≤ MaxWeightKg**.
 
 ```json
 {
   "Type": "RemoteAreaSurcharge",
-  "RemoteZipCodes": ["90210", "10001", "77001"],
-  "SurchargeAmount": 50
+  "Priority": 2,
+  "MaxWeightKg": 10,
+  "SurchargeAmount": 50,
+  "RemoteZipCodes": ["90210", "10001", "77001"]
 }
 ```
 
-### 3. Weight Tier
-Calculates price per kg for shipments within a weight range.
+### 3. Weight Tier (Heavy Package)
+Calculates price per kg for heavy shipments.  
+**No MaxWeightKg** — applies to all packages within the weight range.
 
 ```json
 {
   "Type": "WeightTier",
+  "Priority": 3,
   "WeightFrom": 10,
   "WeightTo": 50,
   "PricePerKg": 15
 }
 ```
 
-Rules are applied in **Priority** order (lowest number first). Each rule checks its own `IsApplicable()` condition before applying.
+Rules are applied in **Priority** order (lowest number first).  
+`MaxWeightKg` acts as a hard cap — if shipment weight exceeds this value, the rule is skipped entirely.
+
+### Rule Application Examples
+
+| weightKg | zipCode | Time | Applied Rules |
+|----------|---------|------|---------------|
+| 5 | 90210 | 07:30 | Morning Promotion + Remote Area Surcharge |
+| 5 | 12345 | 12:00 | None |
+| 15 | 90210 | 07:30 | Heavy Package Tier (Rule 1, 2 skipped — weight > MaxWeightKg) |
+| 15 | 12345 | 12:00 | Heavy Package Tier |
 
 ---
 
@@ -329,7 +362,8 @@ Client polls GET /jobs/{id} to track progress
 Sample files provided in the repository:
 
 - `backend/PricingPlatform.Infrastructure/Data/rules.json` — 3 sample pricing rules
-- `sample_data/bulk_quotes.json` — 1000 sample bulk quotes for testing
+- `backend/sample_data/bulk_quotes.csv` — 1000 sample bulk quotes (CSV)
+- `backend/sample_data/bulk_quotes.json` — 1000 sample bulk quotes (JSON)
 
 ---
 
@@ -337,11 +371,16 @@ Sample files provided in the repository:
 
 ```
 mini-pricing-platform/
+├── .github/workflows/
+│   └── ci.yml
 ├── docker-compose.yml
 ├── README.md
 ├── PricingPlatform.sln
 ├── backend/
 │   ├── Dockerfile
+│   ├── sample_data/
+│   │   ├── bulk_quotes.csv
+│   │   └── bulk_quotes.json
 │   ├── PricingPlatform.API/
 │   │   ├── Controllers/
 │   │   │   ├── QuotesController.cs
