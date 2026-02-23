@@ -10,12 +10,29 @@ const emptyQuote = (): QuoteRequest => ({
   declaredValue: 0
 })
 
+
+
 export default function BulkQuotePage() {
   const [quotes, setQuotes] = useState<QuoteRequest[]>([emptyQuote()])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [uploadedFileName, setUploadedFileName] = useState<string | null>(null)
   const navigate = useNavigate()
+
+  const [validationError, setValidationError] = useState<string | null>(null)
+
+const validate = () => {
+  for (let i = 0; i < quotes.length; i++) {
+    const q = quotes[i]
+    if (!q.weightKg || q.weightKg <= 0)
+      return `Quote #${i + 1}: Weight must be greater than 0`
+    if (!q.destinationZipCode.trim())
+      return `Quote #${i + 1}: Zip code is required`
+    if (!/^\d{5}$/.test(q.destinationZipCode))
+      return `Quote #${i + 1}: Zip code must be 5 digits`
+  }
+  return null
+}
 
   // ─── Upload Handler ───────────────────────────────────
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,26 +99,31 @@ export default function BulkQuotePage() {
     setQuotes(updated)
   }
 
-  const handleSubmit = async () => {
-    setLoading(true)
-    setError(null)
-    try {
-      const result = await submitBulk({ quotes })
-      const history = JSON.parse(localStorage.getItem("jobHistory") || "[]")
-      history.unshift({
-        jobId: result.job_id,
-        submittedAt: new Date().toLocaleString(),
-        totalItems: quotes.length
-      })
-      localStorage.setItem("jobHistory", JSON.stringify(history.slice(0, 10)))
-      navigate(`/jobs?jobId=${result.job_id}`)
-    } catch {
-      setError("Failed to submit bulk job")
-    } finally {
-      setLoading(false)
-    }
+const handleSubmit = async () => {
+  const validErr = validate()
+  if (validErr) {
+    setValidationError(validErr)
+    return
   }
-
+  setValidationError(null)
+  setLoading(true)
+  setError(null)
+  try {
+    const result = await submitBulk({ quotes })
+    const history = JSON.parse(localStorage.getItem("jobHistory") || "[]")
+    history.unshift({
+      jobId: result.job_id,
+      submittedAt: new Date().toLocaleString(),
+      totalItems: quotes.length
+    })
+    localStorage.setItem("jobHistory", JSON.stringify(history.slice(0, 10)))
+    navigate(`/jobs?jobId=${result.job_id}`)
+  } catch {
+    setError("Failed to submit bulk job")
+  } finally {
+    setLoading(false)
+  }
+}
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
@@ -120,6 +142,11 @@ export default function BulkQuotePage() {
         </div>
       )}
 
+      {validationError && (
+        <div className="mb-4 bg-yellow-50 border border-yellow-200 text-yellow-700 rounded-lg p-4">
+          {validationError}
+        </div>
+      )}
  
 
       {/* Manual Form */}
